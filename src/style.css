@@ -1,0 +1,388 @@
+html{
+	font-size: 62.5%;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+*,*::before,*::after{
+	box-sizing: inherit;
+}
+
+body{
+	font-size: 16px;
+	/*background:#faf9fa;*/
+	background:url(dubai-1767540_1280.jpg);
+	background-color:rgba(0,0,0,.3);
+	background-position: center center;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;/*se coloca para que pueda hacer el space between con el header*/
+	justify-content: center;
+	align-items: center;
+}
+
+.header{
+	position:fixed;
+	top:0;
+	left: 0;
+	width:100%;
+	color:white;
+	display:flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	z-index: 99;
+}
+
+@media(min-width:768px){
+	.header{
+		padding: 1rem 10rem;
+	}
+}
+
+.logo-icon span{
+	color:#0FA7EE;
+}
+
+/* .navegation{
+	display: flex;
+	align-items: center;
+	display:none;
+} */
+
+.navegation{
+	display: flex; /* Mostrar el menú cuando tenga la clase .show */
+	flex-direction: column;
+	gap:5rem;
+	align-items:center;
+	position: absolute;
+	top: 0; /* Ajusta según sea necesario */
+	left:0;
+	background-color: (255, 255, 255, 0.5);
+	backdrop-filter: blur(30px);
+	width: 100%; /* Ajusta según sea necesario */
+	border: 1px solid #ccc;
+	border-radius: .8rem;
+	height: 60rem;
+	font-size:2rem;
+	padding:3rem;
+	box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+	transform:translate(100%);
+	transition:0.2s ease-in;
+}
+
+.icono-close{
+	background-color:rgba(0,0,0,.3);
+	backdrop-filter: blur(-4px);
+	font-size: 2rem;
+	font-weight: bold;
+	border-radius: 5rem;
+}
+
+.navegation.show{
+	transform:translate(0);
+}
+
+.navegation a{
+	margin-right: 1.5rem;
+	text-decoration: none;
+	color:white;
+	font-weight: bold;
+	position:relative;
+}
+
+
+@media(min-width:786px){
+	.navegation{
+		display:block;
+		position:static;
+		height: auto;
+		width: auto;
+		background: transparent;
+		border:none;
+		font-size:1.8rem;
+		transform:translateY(0)
+		/* display:flex; */
+	}
+
+	.menu-icon{
+		display:none;
+	}
+}
+
+.navegation a::before{
+	content:"";
+	position:absolute;
+	width:100%;
+	height: 2px;
+	background: #0FA7EE;
+	bottom:-5px;
+	left: 0;
+	transform:scaleX(0);
+	transform-origin:right;
+	transition:transform 0.2s;
+}
+
+.navegation a:hover::before{
+	transform:scaleX(1);
+	transform-origin: left;
+}
+
+.btn-sesion{
+	padding:1rem 2rem;
+	border-radius:.8rem;
+	border:none;
+	background: #0FA7EE;
+	color:white;
+	text-transform: uppercase;
+	cursor:pointer;
+	transition: .2s;
+}
+
+.btn-sesion:hover{
+	background: #0572B0;
+}
+
+/*
+.formulario{
+	width: 40rem;
+	max-width: 60rem;
+	background: #0FA7EE;
+	color:white;
+	font-weight: bold;
+	border-radius: 1rem;
+}*/
+
+legend{
+	text-align: center;
+	padding: 1rem 0;
+	text-transform: uppercase;
+}
+
+.ajustar-icon{
+	display:grid;
+	place-content:center;
+}
+
+.ajustar-icon .icon{
+	color:white;
+}
+
+fieldset{
+	border:none;
+}
+
+.formulario label{
+	font-size: 1.8rem;
+	letter-spacing: 1px;
+}
+
+.formulario input{
+	width: 100%;
+	padding: .8rem;
+	border-radius: 1rem;
+	border:none;
+	margin:.5rem 0;
+
+}
+
+.flex-button{
+	display: flex;
+	justify-content: center;
+}
+
+input[type="submit"]{
+	padding:1rem;
+	width: 90%;
+	margin-bottom: 2rem;
+	background: #0572B0;
+	color:white;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 1.2px;
+	transition:.2s;
+	/*border:none;*/
+}
+
+input[type="submit"]:hover{
+	background: #045B8C;
+	cursor:pointer;
+}
+
+.container-password{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+}
+
+.eye,.eye-registro{
+	position:absolute;
+	/*transform: translateX(-50%);*/
+	right: 2px;
+	/*border-left: 1.5px solid black;*/
+	height: 77%;
+	/*margin:0 1rem;*/
+	display:block;
+}
+
+.eye:hover,.eye-registro:hover{
+	cursor: pointer;
+}
+
+
+.eye-open,.eye-open-registro{
+	position:absolute;
+	display:none;
+	/*transform: translateX(-50%);*/
+	right: 2px;
+	/*border-left: 1.5px solid black;*/
+	height: 77%;
+}
+
+.eye-open.active, .eye-open-registro.active{
+	display:block;
+}
+
+
+.eye.desactive,.eye-registro.desactive{
+	display:none;
+}
+
+.icon-user{
+	color:white;
+}
+
+.fondo{
+	position:relative;
+	width: 40rem;
+	max-width: 60rem;
+	background: rgba(255,255,255,.4);
+	backdrop-filter:blur(9px);
+	color:white;
+	font-weight: bold;
+	border-radius: 1rem;
+	margin-top: 5rem;
+	overflow: hidden;
+	transition:transform .5s height .2 ease;
+	transform:scale(0); /*aqui para moverle el scale y luego dar click y aparezca el formulario*/
+	height: 455px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.fondo.active-btn{
+	transform:scale(1);
+}
+
+
+.fondo.active{
+	height: 550px;
+}
+
+.fondo .formulario.olvide{
+	position:absolute;
+	transform: translate(-500px);
+	top:0;
+}
+
+.fondo.active-olvide .formulario.login{
+	transition: none;  
+	transform: translateX(-500px);
+	opacity:0;
+}
+
+.fondo.active-olvide .formulario.registro{
+	transition: none;  
+	transform: translateX(-500px);
+	opacity:0;
+}
+
+.fondo.active-olvide .formulario.olvide{
+	transition: .17s ease;
+	transform:translateX(0);
+	opacity:1;
+}
+
+.fondo.active-olvide{
+	height: 400px;
+}
+
+.fondo .formulario.login{
+	position:absolute;
+	transition: .17s ease;
+	width:100%;
+	transform:translateX(0);
+	opacity:1;
+}
+
+.fondo.active .formulario.login{
+	transition: none;  
+	transform: translateX(-500px);
+	opacity:0;
+}
+
+.fondo.active .formulario.registro{
+	position:absolute;
+	width:100%;
+	top:0;
+	transition: transform .17s ease;
+	transform: translateX(0);
+	opacity:1;
+}
+
+.fondo.active-login .formulario.registro{
+	transition: none;  
+	transform: translateX(-500px);
+	opacity:0;
+}
+
+.fondo.active-login .formulario.olvide{f
+	transition: none;  
+	transform: translateX(-500px);
+	opacity:0;
+}
+
+.fondo.active-login .formulario.login{
+	transition: .17s ease;  
+	transform: translateX(0);
+	opacity:1;
+}
+
+.cerrar-btn{
+	position:absolute;
+	right: 0;
+	top:0;
+	background: black;
+	border-bottom-left-radius:1rem;
+	z-index: 2;
+	cursor:pointer;
+	color:white;
+}
+
+@media(min-width:768px){
+	.icono-close{
+		display:none;
+	}
+}
+
+.formulario.registro{
+	transform: translate(-500px);
+}
+
+
+.flex-registro{
+	display:grid;
+	place-content:center;
+}
+
+#boton-olvide-registro{
+	color:#0572B0;
+}
+
+.flex-registro a, #boton-olvide, #boton-olvide-registro{
+	color:#021F4B;
+	/*text-transform: uppercase;*/
+	font-weight: bold;
+}
